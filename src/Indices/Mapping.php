@@ -123,23 +123,23 @@ final class Mapping implements ArrayableInterface
         $mapping = [];
 
         if (isset($this->isFieldNamesEnabled)) {
-            $mapping['_field_names'] = [
+            $mapping['_doc']['_field_names'] = [
                 'enabled' => $this->isFieldNamesEnabled,
             ];
         }
 
         if (isset($this->isSourceEnabled)) {
-            $mapping['_source'] = [
+            $mapping['_doc']['_source'] = [
                 'enabled' => $this->isSourceEnabled,
             ];
         }
 
         if (count($this->properties) > 0) {
-            $mapping['properties'] = $this->properties;
+            $mapping['_doc']['properties'] = $this->properties;
         }
 
         if (count($this->dynamicTemplates) > 0) {
-            $mapping['dynamic_templates'] = $this->dynamicTemplates;
+            $mapping['_doc']['dynamic_templates'] = $this->dynamicTemplates;
         }
 
         return $mapping;
